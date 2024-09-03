@@ -7,6 +7,10 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import Profile from "./pages/Profile/Profile";
+import Transactions from "./pages/Profile/Transactions";
+import Edit from "./pages/Profile/Edit";
+import Users from "./pages/Users";
 
 const queryClient = new QueryClient();
 const router = createBrowserRouter([
@@ -23,8 +27,23 @@ const router = createBrowserRouter([
         element: <Login />,
       },
       {
-        // path: "/me",
-        // element: <Profile />,
+        path: "/me",
+        element: <Profile />,
+        children: [
+          {
+            path: "transactions",
+            element: <Transactions />,
+          },
+          {
+            path: "edit",
+            element: <Edit />,
+          },
+        ],
+      },
+
+      {
+        path: "/users",
+        element: <Users />,
       },
     ],
   },
