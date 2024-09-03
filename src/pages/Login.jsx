@@ -9,18 +9,11 @@ const Login = () => {
                 [Welcome back to the Fullstack Bank!]
             </h1>
             <hr />
-            <h5 className="text-xl font-extrabold">Create Account</h5>
+            <h5 className="text-xl font-extrabold">Login to account</h5>
             <h5 className="text-lg font-semibold">
-                Enter your information to create a new account
+                Enter your information to log back
             </h5>
-            <label className="flex flex-col" htmlFor="email">
-                Username
-                <input
-                id="username"
-                className="bg-secondary text-white p-3 rounded-lg text-xl"
-                type="username"
-                />
-            </label>
+            
             <label className="flex flex-col" htmlFor="email">
                 Email
                 <input
@@ -42,9 +35,9 @@ const Login = () => {
                 Submit
             </button>
             <p>
-                Already have an account?
+                Don't have an account?
                 
-                <Link className="underline text-blue-600 m-2" to={"/login"}>Login</Link> 
+                <Link className="underline text-blue-600 m-2" to={"/register"}>Signup</Link> 
             </p>
         </div>
     </SplitScreen>
