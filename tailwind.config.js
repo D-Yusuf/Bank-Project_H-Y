@@ -6,7 +6,7 @@ module.exports = {
       colors: {
         //https://coolors.co/dbcdf0-2d3142-0e7c7b 
         "main" : "#DBCDF0", // thristle
-        "secondary" : "#2D3142", // gunmetal (black -kinda)
+        "secondary" : "#2D3142", // gunmetal (-kinda black)
         "accent" : "#0E7C7B" // teal
       }
     },
