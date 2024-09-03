@@ -11,6 +11,9 @@ import Profile from "./pages/Profile/Profile";
 import Transactions from "./pages/Profile/Transactions";
 import Edit from "./pages/Profile/Edit";
 import Users from "./pages/Users";
+import Landing from "./pages/Landing";
+import Home from "./pages/Home";
+import Navbar from "./components/Navbar";
 
 const queryClient = new QueryClient();
 const router = createBrowserRouter([
@@ -19,12 +22,20 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
+        path: "/",
+        element: <Landing />,
+      },
+      {
         path: "/register",
         element: <Register />,
       },
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/home",
+        element: <Home />,
       },
       {
         path: "/me",

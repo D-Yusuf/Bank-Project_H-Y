@@ -1,18 +1,13 @@
-import React from 'react'
+import React from "react";
 
-const SplitScreen = ({children}) => {
+const SplitScreen = ({ children }) => {
   return (
     <div>
-        <div class="split left bg-main">
-            {children}
-        </div>
+      <div className="split left bg-main">{children}</div>
 
-        <div class="split right bg-secondary">
-        {/* put image here */}
-        </div>
-
+      <div className="split right bg-secondary">{/* put image here */}</div>
     </div>
-  )
-}
+  );
+};
 
-export default SplitScreen
+export default SplitScreen;
