@@ -1,14 +1,15 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   return (
     <div className="flex w-full  items-center">
       <div class="split left bg-main">
-        <div className="flex flex-col  gap-10 p-6 ">
-          <h1 className="text-4xl font-extrabold text-center mb-16">
-            [Welcome to "name" bank]
+        <div className="flex flex-col lg:gap-10 gap-4 p-6 ">
+          <h1 className="lg:text-4xl text-3xl font-extrabold text-center">
+            [Welcome to the Fullstack Bank]
           </h1>
+          <hr />
           <h5 className="text-xl font-extrabold">Create Account</h5>
           <h5 className="text-lg font-semibold">
             Enter your information to create a new account
@@ -51,9 +52,9 @@ const Register = () => {
         </div>
       </div>
 
-      <div class="split right">
+      <div class="split right bg-secondary">
         
-      <img className='h-screen' src="https://img.freepik.com/free-vector/black-background-geometric-gradient-design_677411-2886.jpg" alt="bg" />
+      {/* <img className='h-screen' src="https://img.freepik.com/free-vector/black-background-geometric-gradient-design_677411-2886.jpg" alt="bg" /> */}
 
         
       </div>

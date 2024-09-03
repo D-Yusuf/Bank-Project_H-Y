@@ -3,7 +3,7 @@
 @tailwind utilities;
 .split {
     height: 100%;
-    /* width: 50%; */
+    width: 50%;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -12,13 +12,13 @@
 }
 
 .left {
-      width: 40%;
+      /* width: 40%; */
     left: 0;
 
   }
   
   .right {
-    width: 60%;
+    /* width: 60%; */
     right: 0;
 
   }
