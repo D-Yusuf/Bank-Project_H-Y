@@ -1,25 +1,36 @@
 import instance from ".";
-function register(){
-//post
+async function register(userInfo){
+    const formData = new FormData()
+    for(let key in userInfo){
+        formData.append(key, userInfo[key])
+    }
+    const {data} = await instance.post("/mini-project/api/auth/register", formData)
+    return data
+    //post
 }
-function login(){
+async function login(userInfo){
+    const {data} = await instance.post("/mini-project/api/auth/login", userInfo)
+    console.log(data)
+    return data
 //post (return posted email&password user and give token)
 }
-function getMyInfo(){
+async function getMyInfo(){
 //get
 }
-function getAllUsers(){
+async function getAllUsers(){
 //get
 }
-function deposit(amount){
+async function deposit(amount){
 //put (update)
 }
-function withdraw(amount){
+async function withdraw(amount){
 //put 
 }
-function transfer(amount, userName){
+async function transfer(amount, userName){
 //put
 }
-function getUserInfo(){
+async function getUserInfo(){
 // will use useQuery when path is 
 }
+
+export {register, login, getMyInfo, getAllUsers, deposit, withdraw, transfer, getUserInfo}
