@@ -13,9 +13,12 @@ function App() {
   }, []);
   return (
     <UserContext.Provider value={[user, setUser]}>
-      <div className=" bg-main">
+      <div className=" bg-main min-h-screen">
         <Navbar />
+        <div className="pt-36 px-5">
+
         <Outlet />
+        </div>
       </div>
     </UserContext.Provider>
   );

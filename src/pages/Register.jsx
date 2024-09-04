@@ -1,10 +1,12 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, Navigate } from "react-router-dom";
 import SplitScreen from "../components/SplitScreen";
 import { useMutation } from "react-query";
 import { register } from "../api/auth";
-
+import UserContext from "../components/Context/UserContext";
+import { checkToken } from "../api/storage";
 const Register = () => {
+    const [user, setUser] = useContext(UserContext)
     const [userInfo, setUserInfo] = useState({})
     function handleChange(e){
         setUserInfo({...userInfo, [e.target.id] : e.target.value})
@@ -12,13 +14,22 @@ const Register = () => {
     }
     const {mutate} = useMutation({
         mutationKey: ["register"],
-        mutationFn: ()=>register(userInfo)
+        mutationFn: ()=>register(userInfo),
+        onSuccess: () => {
+            if (checkToken()) {
+              // console.log("loggedin");
+              setUser(true);
+            }
+          },
     })
     function handleSubmit(e){
         e.preventDefault()
         mutate()
 
     } 
+    if (user) {
+        return <Navigate to={"/home"} />;
+    }
     
     return (
         <SplitScreen>

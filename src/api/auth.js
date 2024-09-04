@@ -9,6 +9,7 @@ async function register(userInfo) {
     "/mini-project/api/auth/register",
     formData
   );
+  storeToken(data.token);
   return data;
   //post
 }
@@ -17,7 +18,7 @@ async function login(userInfo) {
     "/mini-project/api/auth/login",
     userInfo
   );
-  console.log(data);
+//   console.log(data);
   storeToken(data.token);
   return data;
   //post (return posted email&password user and give token)

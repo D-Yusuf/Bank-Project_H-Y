@@ -1,18 +1,29 @@
-import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import React, { useContext } from "react";
+import {  NavLink } from "react-router-dom";
+import UserContext from "./Context/UserContext";
 
 const Navbar = () => {
-  console.log("its working");
+  // todo
+  // add Active styles for navlinks
+  // better looking navbar
+  const [user, setUser] = useContext(UserContext)
   return (
-    <div className="navBar flex p-5 gap-5 justify-center z-50 absolute w-screen">
+    <div className="flex p-5 gap-5 justify-center absolute w-screen border-b">
       <NavLink to="/">Main</NavLink>
       <NavLink to="/home">Home</NavLink>
+      {/* <NavLink to="/me/transactions">Transactions</NavLink> */}
       <NavLink to="/me">Profile</NavLink>
-      <NavLink to="/me/transactions">Transactions</NavLink>
-
+      {user ?
+      <button onClick={()=>setUser(false)}>Logout</button>
+        :
+      <>
       <NavLink to="/login">Login</NavLink>
 
-      <NavLink to="/register">register</NavLink>
+      <NavLink to="/register">Register</NavLink>
+      </>
+      }
+
+
     </div>
   );
 };
