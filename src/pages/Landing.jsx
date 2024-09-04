@@ -1,5 +1,5 @@
 import React from "react";
-import SplitScreen from "../components/SplitScreen";
+import SplitScreen from "../components/SplitScreen/SplitScreen";
 
 const Landing = () => {
   return (

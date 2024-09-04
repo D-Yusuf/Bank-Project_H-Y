@@ -42,12 +42,12 @@ const router = createBrowserRouter([
         element: <Profile />,
         children: [
           {
-            path: "transactions",
-            element: <Transactions />,
+            index: true,
+            element: <Edit />,
           },
           {
-            path: "edit",
-            element: <Edit />,
+            path: "transactions",
+            element: <Transactions />,
           },
         ],
       },

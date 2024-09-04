@@ -1,6 +1,6 @@
 import React from "react";
-import Modal from "../components/Modal";
-import SplitScreen from "../components/SplitScreen";
+import Modal from "../components/Modal/Modal";
+import SplitScreen from "../components/SplitScreen/SplitScreen";
 
 const Home = () => {
   return (

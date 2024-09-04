@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import SplitScreen from "../components/SplitScreen";
+import SplitScreen from "../components/SplitScreen/SplitScreen";
 import { login } from "../api/auth";
 import { useMutation } from "react-query";
 import { checkToken } from "../api/storage";
-import UserContext from "../components/Context/UserContext";
+import UserContext from "../Context/UserContext";
 import { Navigate } from "react-router-dom";
 
 const Login = () => {
@@ -19,7 +19,7 @@ const Login = () => {
     mutationFn: () => login(userInfo),
     onSuccess: () => {
       if (checkToken()) {
-        console.log("loggedin");
+        // console.log("loggedin");
         setUser(true);
       }
     },

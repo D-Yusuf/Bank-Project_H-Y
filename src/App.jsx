@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar";
 import Login from "./pages/Login";
 import { Outlet } from "react-router-dom";
 import { checkToken } from "./api/storage";
-import UserContext from "./components/Context/UserContext";
+import UserContext from "./Context/UserContext";
 // import  Register  from "./pages/Register";
 function App() {
   const [user, setUser] = useState(false);
