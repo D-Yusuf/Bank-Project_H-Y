@@ -18,15 +18,19 @@ async function login(userInfo) {
     "/mini-project/api/auth/login",
     userInfo
   );
-//   console.log(data);
+  //   console.log(data);
   storeToken(data.token);
   return data;
   //post (return posted email&password user and give token)
 }
 async function getMyInfo() {
   //get
+  const { data } = await instance.get("/mini-project/api/auth/me");
+  return data;
 }
 async function getAllUsers() {
+  const { data } = await instance.get("/mini-project/api/auth/users");
+  return data;
   //get
 }
 async function deposit(amount) {

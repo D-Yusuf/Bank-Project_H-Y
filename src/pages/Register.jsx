@@ -9,8 +9,12 @@ const Register = () => {
   const [user, setUser] = useContext(UserContext);
   const [userInfo, setUserInfo] = useState({});
   function handleChange(e) {
-    setUserInfo({ ...userInfo, [e.target.id]: e.target.value });
-    console.log(userInfo);
+    if (e.target.id == "image") {
+      setUserInfo({ ...userInfo, [e.target.id]: e.target.files[0] });
+    } else {
+      setUserInfo({ ...userInfo, [e.target.id]: e.target.value });
+      console.log(userInfo);
+    }
   }
   const { mutate } = useMutation({
     mutationKey: ["register"],
@@ -62,6 +66,16 @@ const Register = () => {
             id="password"
             className="bg-secondary text-white p-3 rounded-lg text-xl"
             type="password"
+          />
+        </label>
+        <label className="flex flex-col" htmlFor="image">
+          Image
+          <input
+            onChange={handleChange}
+            required
+            id="image"
+            className="bg-secondary text-white p-3 rounded-lg text-xl w-fit text-center"
+            type="file"
           />
         </label>
 

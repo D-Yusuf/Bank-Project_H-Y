@@ -6,6 +6,7 @@ import { useMutation } from "react-query";
 import { checkToken } from "../api/storage";
 import UserContext from "../Context/UserContext";
 import { Navigate } from "react-router-dom";
+import Screen from "../components/SplitScreen/Screen";
 
 const Login = () => {
   const [userInfo, setUserInfo] = useState({});
@@ -34,50 +35,54 @@ const Login = () => {
 
   return (
     <SplitScreen>
-      <form
-        onSubmit={handleSubmit}
-        className="flex flex-col lg:gap-10 gap-4 p-6 "
-      >
-        <h1 className="lg:text-4xl text-3xl font-extrabold text-center">
-          [Welcome back to the Fullstack Bank!]
-        </h1>
-        <hr />
-        <h5 className="text-xl font-extrabold">Login to account</h5>
-        <h5 className="text-lg font-semibold">
-          Enter your information to log back
-        </h5>
+      <Screen className="w-1/2 h-full bg-main" direction="left">
+        {" "}
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col lg:gap-10 gap-4 p-6 "
+        >
+          <h1 className="lg:text-4xl text-3xl font-extrabold text-center">
+            [Welcome back to the Fullstack Bank!]
+          </h1>
+          <hr />
+          <h5 className="text-xl font-extrabold">Login to account</h5>
+          <h5 className="text-lg font-semibold">
+            Enter your information to log back
+          </h5>
 
-        <label className="flex flex-col" htmlFor="username">
-          Username
-          <input
-            onChange={handleChange}
-            required
-            id="username"
-            className="bg-secondary text-white p-3 rounded-lg text-xl"
-            type="text"
-          />
-        </label>
-        <label className="flex flex-col" htmlFor="password">
-          Password
-          <input
-            onChange={handleChange}
-            required
-            id="password"
-            className="bg-secondary text-white p-3 rounded-lg text-xl"
-            type="password"
-          />
-        </label>
+          <label className="flex flex-col" htmlFor="username">
+            Username
+            <input
+              onChange={handleChange}
+              required
+              id="username"
+              className="bg-secondary text-white p-3 rounded-lg text-xl"
+              type="text"
+            />
+          </label>
+          <label className="flex flex-col" htmlFor="password">
+            Password
+            <input
+              onChange={handleChange}
+              required
+              id="password"
+              className="bg-secondary text-white p-3 rounded-lg text-xl"
+              type="password"
+            />
+          </label>
 
-        <button className="bg-accent text-white w-fit py-3 px-7 rounded-lg shadow-md hover:bg-opacity-80 active:bg-slate-500">
-          Submit
-        </button>
-        <p>
-          Don't have an account?
-          <Link className="underline text-blue-600 m-2" to={"/register"}>
-            Signup
-          </Link>
-        </p>
-      </form>
+          <button className="bg-accent text-white w-fit py-3 px-7 rounded-lg shadow-md hover:bg-opacity-80 active:bg-slate-500">
+            Submit
+          </button>
+          <p>
+            Don't have an account?
+            <Link className="underline text-blue-600 m-2" to={"/register"}>
+              Signup
+            </Link>
+          </p>
+        </form>
+      </Screen>
+      <Screen className="w-1/2 h-full bg-secondary" direction="right"></Screen>
     </SplitScreen>
   );
 };
