@@ -13,7 +13,6 @@ const getToken = () => {
 
 const deleteToken = () => {
   localStorage.removeItem("token");
-  console.log("you logged out");
 };
 
 export { storeToken, checkToken, getToken, deleteToken };

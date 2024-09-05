@@ -1,14 +1,27 @@
-import React from "react";
-import Modal from "../components/Modal/Modal";
+import React, { useState } from "react";
 import SplitScreen from "../components/SplitScreen/SplitScreen";
-
+import { deposit } from "../api/auth";
+import { useMutation } from "react-query";
 const Home = () => {
+    const [depositAmount, setDepositAmount] = useState(0)
+    const {mutate} = useMutation({
+        mutationKey: ["deposit"],
+        mutationFn: ()=> deposit(depositAmount)
+    })
+    function handleDeposit(e){
+        e.preventDefault()
+        console.log(depositAmount)
+        mutate()
+
+    }
+    
   return (
     <div>
         Home
-        <Modal>
-            <h1>HELLO, THIS IS THE HOME MODAL</h1>
-        </Modal>
+        <form onSubmit={handleDeposit} className="bg-secondary text-white p-10 ">
+            <input className="p-2 text-black" type="number" onChange={(e)=>setDepositAmount(e.target.value)}/>
+            <button className="bg-accent p-2 " type="submit">Deposit</button>
+        </form>
     </div>);
 };
 

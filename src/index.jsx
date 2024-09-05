@@ -14,6 +14,7 @@ import Users from "./pages/Users";
 import Landing from "./pages/Landing";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
+import Logout from "./pages/Profile/Logout";
 
 const queryClient = new QueryClient();
 const router = createBrowserRouter([
@@ -37,6 +38,7 @@ const router = createBrowserRouter([
         path: "/home",
         element: <Home />,
       },
+      
       {
         path: "/me",
         element: <Profile />,
@@ -48,6 +50,10 @@ const router = createBrowserRouter([
           {
             path: "transactions",
             element: <Transactions />,
+          },
+          {
+            path: "logout",
+            element: <Logout />,
           },
         ],
       },

@@ -2,11 +2,9 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import SplitScreen from "../../components/SplitScreen/SplitScreen";
 import ProfileNav from "./ProfileNav";
-import Navbar from "../../components/Navbar";
 import Screen from "../../components/SplitScreen/Screen";
 import { getMyInfo } from "../../api/auth";
 import { useQuery } from "react-query";
-import User from "../../components/User";
 import defaultPfP from "../../images/defaultPfP.jpg"
 const Profile = () => {
   function DashBoardScreen() {
@@ -27,7 +25,7 @@ const Profile = () => {
     <div className="mt-32">
       {/* <SplitScreen secondScreenContent={<DashBoardScreen />} secondScreenClassName={"w-[70%] pt-0"}> */}
       <SplitScreen>
-        <Screen direction="left" className="h-full pt-20 w-2/6 p-5">
+        <Screen direction="left" className="h-full pt-20 w-1/6 p-5">
           {data ? 
           <div className="flex z-50 flex-col items-start gap-5 ">
             <img
@@ -38,14 +36,14 @@ const Profile = () => {
               alt={`${data.username || ""}'s img`}
             />
             <h1 className="">{data.username}</h1>
-            <h1>Balance: {data.balance}</h1>
+            <h1>Balance: ${data.balance}</h1>
           </div> : 
           "Loading"}
           <ProfileNav />
         </Screen>
         <Screen
           direction="right"
-          className="h-2/3 w-4/6 bg-secondary text-white border-pink-50 border-t-[1rem] border-l-[1rem] rounded-md"
+          className="h-2/3 w-5/6 bg-secondary text-white border-pink-50 border-t-[1rem] border-l-[1rem] rounded-md"
         >
           <Outlet />
         </Screen>

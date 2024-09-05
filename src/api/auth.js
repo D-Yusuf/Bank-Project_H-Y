@@ -34,6 +34,8 @@ async function getAllUsers() {
   //get
 }
 async function deposit(amount) {
+  const {data} = instance.put("/mini-project/api/transactions/deposit", {amount : amount})
+  return data
   //put (update)
 }
 async function withdraw(amount) {
