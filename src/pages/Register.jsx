@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import SplitScreen from "../components/SplitScreen/SplitScreen";
+import Screen from "../components/SplitScreen/Screen";
 import { useMutation } from "react-query";
 import { register } from "../api/auth";
 import UserContext from "../Context/UserContext";
@@ -36,6 +37,7 @@ const Register = () => {
 
   return (
     <SplitScreen>
+      <Screen className="w-1/2 h-full bg-main" direction="left">
       <form
         onSubmit={handleSubmit}
         className="flex flex-col lg:gap-10 gap-4 p-6 "
@@ -89,6 +91,9 @@ const Register = () => {
           </Link>
         </p>
       </form>
+      </Screen>
+      <Screen className="w-1/2 h-full bg-secondary" direction="right"></Screen>
+      
     </SplitScreen>
     // <div className="flex w-full  items-center">
     //   <div class="split left bg-main">
