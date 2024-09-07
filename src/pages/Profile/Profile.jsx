@@ -5,7 +5,7 @@ import ProfileNav from "./ProfileNav";
 import Screen from "../../components/SplitScreen/Screen";
 import { getMyInfo } from "../../api/auth";
 import { useQuery } from "react-query";
-import defaultPfP from "../../images/defaultPfP.jpg"
+import defaultPfP from "../../images/defaultPfP.jpg";
 const Profile = () => {
   function DashBoardScreen() {
     return (
@@ -26,19 +26,24 @@ const Profile = () => {
       {/* <SplitScreen secondScreenContent={<DashBoardScreen />} secondScreenClassName={"w-[70%] pt-0"}> */}
       <SplitScreen>
         <Screen direction="left" className="h-full pt-20 w-1/6 p-5">
-          {data ? 
-          <div className="flex z-50 flex-col items-start gap-5 ">
-            <img
-              className="rounded-full w-[150px]"
-              src={
-                data.image ? "https://react-bank-project.eapi.joincoded.com/" + data.image : defaultPfP
-              } // the + here will add the image as the endpoint to the url
-              alt={`${data.username || ""}'s img`}
-            />
-            <h1 className="">{data.username}</h1>
-            <h1>Balance: ${data.balance}</h1>
-          </div> : 
-          "Loading"}
+          {data ? (
+            <div className="flex z-50 flex-col items-start gap-5 ">
+              <img
+                className="rounded-full w-[150px]"
+                src={
+                  data.image
+                    ? "https://react-bank-project.eapi.joincoded.com/" +
+                      data.image
+                    : defaultPfP
+                } // the + here will add the image as the endpoint to the url
+                alt={`${data.username || ""}'s img`}
+              />
+              <h1 className="">{data.username}</h1>
+              <h1>Balance: ${data.balance}</h1>
+            </div>
+          ) : (
+            "Loading"
+          )}
           <ProfileNav />
         </Screen>
         <Screen

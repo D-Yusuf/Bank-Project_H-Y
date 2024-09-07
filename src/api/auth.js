@@ -34,9 +34,16 @@ async function getAllUsers() {
   //get
 }
 async function deposit(amount) {
-  const {data} = instance.put("/mini-project/api/transactions/deposit", {amount : amount})
-  return data
+  const { data } = instance.put("/mini-project/api/transactions/deposit", {
+    amount: amount,
+  });
+  return data;
   //put (update)
+}
+async function getUserTransactions() {
+  //get
+  const { data } = await instance.get("/mini-project/api/transactions/my");
+  return data;
 }
 async function withdraw(amount) {
   //put
@@ -57,4 +64,5 @@ export {
   withdraw,
   transfer,
   getUserInfo,
+  getUserTransactions,
 };
