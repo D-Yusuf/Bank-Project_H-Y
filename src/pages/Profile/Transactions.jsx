@@ -9,7 +9,6 @@ const Profile = () => {
   // State to manage loading status (true while data is being fetched)
   const [loading, setLoading] = useState(true);
 
-  // useEffect runs once after the component mounts to fetch transaction data
   useEffect(() => {
     const fetchTransactions = async () => {
       try {
