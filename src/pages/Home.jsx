@@ -4,6 +4,8 @@ import { deposit, withdraw } from "../api/auth";
 import { useMutation } from "react-query";
 const Home = () => {
   const [depositAmount, setDepositAmount] = useState(0);
+  const [withdrawAmount, setWithdrawAmount] = useState(0); //i want to make it useState(the current balance) so i can withdraw from it
+
   const { mutate } = useMutation({
     mutationKey: ["deposit"],
     mutationFn: () => deposit(depositAmount),
@@ -13,7 +15,6 @@ const Home = () => {
     console.log(depositAmount);
     mutate();
   }
-  const [withdrawAmount, setWithdrawAmount] = useState(0); //i want to make it useState(the current balance) so i can withdraw from it
   const { mutate: withdrawFunds } = useMutation({
     mutationKey: ["withdraw"],
     mutationFn: () => withdraw(withdrawAmount),
