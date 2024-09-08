@@ -10,11 +10,23 @@ const Profile = () => {
   const { data: transactions, isPending } = useQuery({
     queryKey: ["getUserTransactions"],
     queryFn: getUserTransactions,
+    /**data prototype
+     * 
+     * amount: ,
+     * createdAt: date,
+     * from: userId, (only for transfers)
+     * to: userId, (only for transfers)
+     * type: ("deposit" || "withdraw" || "transfer"),
+     * updatedAt: date, (no need)
+     * __v: ,(no need)
+     * _id: transactionId, (no need)
+     * 
+     */
   });
 
-  if (!isPending) {
-    console.log(transactions);
-  }
+  // if (!isPending) {
+  //   console.log(transactions);
+  // }
 
   return (
     <div className="profile-container">
@@ -34,7 +46,7 @@ const Profile = () => {
             <ul className="list-none">
               {transactions.map((transaction) => (
                 // Each transaction is rendered as a list item
-                <li key={transaction.id} className="border-b p-4">
+                <li key={transaction._id} className="border-b p-4">
                   {/* Display the transaction amount */}
                   <p>Amount: ${transaction.amount}</p>
                 </li>

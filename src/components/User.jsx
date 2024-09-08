@@ -16,7 +16,10 @@ const User = ({ userInfo }) => {
         {/* <h1>{_id}</h1> *same as userinfo.id */}
         <h1>{username}</h1>
         <h1>{balance}</h1>
-        <button className="bg-accent py-2 px-4 w-fit text-lg rounded-full text-white">Transfer</button>
+        <form className="flex flex-col items-center gap-4 text-black">
+            <input required type="number" className="pl-2"/>
+            <button className="bg-accent py-2 px-4 w-fit text-lg rounded-full text-white">Transfer</button>
+        </form>
         
         </div>
     );
