@@ -1,42 +1,20 @@
 // Import necessary modules from React and custom API functions
 import React, { useEffect, useState } from "react";
 import { getUserTransactions } from "../../api/auth"; // Import the function to fetch user transactions
+import { useQuery } from "react-query";
 
 const Profile = () => {
   // State to hold the list of transactions
-  const [transactions, setTransactions] = useState([]);
+  // const [transactions, setTransactions] = useState([]);
 
-  // State to manage loading status (true while data is being fetched)
-  const [loading, setLoading] = useState(true);
+  const { data: transactions, isPending } = useQuery({
+    queryKey: ["getUserTransactions"],
+    queryFn: getUserTransactions,
+  });
 
-  useEffect(() => {
-    const fetchTransactions = async () => {
-      try {
-        // Fetch the transactions from the API
-        const data = await getUserTransactions();
-        console.log(data)
-        /**data sample
-         * 
-         * amount: ,
-         * createdAt: ,
-         * from: id,
-         * to: id,
-         * type: ("deposit" || "withdraw" || "transfer"),
-         * updatedAt: ,
-         * __v: ,
-         * _id: transactionId (probably)
-         * 
-         */
-        setTransactions(data); // Store the transactions in state
-        setLoading(false); // Set loading to false after data is fetched
-      } catch (error) {
-        console.error("Failed to fetch transactions", error); // Log any error during data fetching
-        setLoading(false); // Set loading to false even if an error occurs
-      }
-    };
-
-    fetchTransactions(); // Call the function to fetch transactions
-  }, []); // Empty dependency array ensures this runs only once (on component mount)
+  if (!isPending) {
+    console.log(transactions);
+  }
 
   return (
     <div className="profile-container">
@@ -44,7 +22,7 @@ const Profile = () => {
       <h2 className="text-2xl font-bold mb-4">Transaction History</h2>
 
       {/* Display a loading message while the transactions are being fetched */}
-      {loading ? (
+      {!transactions ? (
         <p>Loading transactions...</p>
       ) : (
         <div className="transaction-list">
