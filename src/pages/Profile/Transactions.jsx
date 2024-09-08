@@ -6,12 +6,17 @@ import { useQuery } from "react-query";
 const Profile = () => {
   // State to hold the list of transactions
   // const [transactions, setTransactions] = useState([]);
-
+  function toNormaldate(time) {
+    const date = new Date(time);
+    const formattedDate = date.toLocaleString(); // e.g., "9/5/2024, 6:39:38 PM" in US locale
+    console.log(formattedDate);
+    return formattedDate;
+  }
   const { data: transactions, isPending } = useQuery({
     queryKey: ["getUserTransactions"],
     queryFn: getUserTransactions,
     /**data prototype
-     * 
+     *
      * amount: ,
      * createdAt: date,
      * from: userId, (only for transfers)
@@ -20,7 +25,7 @@ const Profile = () => {
      * updatedAt: date, (no need)
      * __v: ,(no need)
      * _id: transactionId, (no need)
-     * 
+     *
      */
   });
 
@@ -48,6 +53,8 @@ const Profile = () => {
                 // Each transaction is rendered as a list item
                 <li key={transaction._id} className="border-b p-4">
                   {/* Display the transaction amount */}
+                  <p className="uppercase font-bold">{transaction.type}</p>
+                  <p>{toNormaldate(transaction.createdAt)}</p>
                   <p>Amount: ${transaction.amount}</p>
                 </li>
               ))}

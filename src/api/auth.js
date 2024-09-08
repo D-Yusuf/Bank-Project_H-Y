@@ -48,15 +48,17 @@ async function getUserTransactions() {
 async function withdraw(amount) {
   //put
   const { data } = instance.put("/mini-project/api/transactions/withdraw", {
-   amount: amount, //here its amount: amount but i want to make it amount: amount - balance i still dont know how
+    amount: amount, //here its amount: amount but i want to make it amount: amount - balance i still dont know how
   });
   return data;
 }
-async function transfer(amount, username) {
-  const { data } = instance.put(`/mini-project/api/transactions/transfer/${username}`, {
-   amount: amount,
-   username: username,
-  });
+async function transfer(username, amount) {
+  const { data } = instance.put(
+    `/mini-project/api/transactions/transfer/${username}`,
+    {
+      amount: amount,
+    }
+  );
   return data;
   //put
 }
