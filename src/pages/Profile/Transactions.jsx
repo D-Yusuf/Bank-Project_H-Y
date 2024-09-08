@@ -14,6 +14,19 @@ const Profile = () => {
       try {
         // Fetch the transactions from the API
         const data = await getUserTransactions();
+        console.log(data)
+        /**data sample
+         * 
+         * amount: ,
+         * createdAt: ,
+         * from: id,
+         * to: id,
+         * type: ("deposit" || "withdraw" || "transfer"),
+         * updatedAt: ,
+         * __v: ,
+         * _id: transactionId (probably)
+         * 
+         */
         setTransactions(data); // Store the transactions in state
         setLoading(false); // Set loading to false after data is fetched
       } catch (error) {
