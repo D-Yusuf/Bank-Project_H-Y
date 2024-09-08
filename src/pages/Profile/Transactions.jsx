@@ -2,6 +2,9 @@
 import React, { useEffect, useState } from "react";
 import { getUserTransactions } from "../../api/auth"; // Import the function to fetch user transactions
 import { useQuery } from "react-query";
+import DatePicker from "react-datepicker";
+
+import "react-datepicker/dist/react-datepicker.css";
 
 const Profile = () => {
   // State to hold the list of transactions
@@ -33,8 +36,30 @@ const Profile = () => {
   //   console.log(transactions);
   // }
 
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
+
   return (
     <div className="profile-container">
+      <div className="flex gap-4 flex-row bg-black">
+        <h1>Start Date</h1>
+        <DatePicker
+          className="text-black"
+          selected={startDate}
+          onChange={(date) => setStartDate(date)}
+        />
+        <h1>End Date</h1>
+        <DatePicker
+          className="text-black"
+          selected={endDate}
+          onChange={(date) => setEndDate(date)}
+        />
+        <input type="radio" className="bg-black" />
+        <input type="radio" className="bg-black" />
+        <input type="radio" className="bg-black" />
+        <input type="radio" className="bg-black" />
+      </div>
+
       {/* Header for the transaction history */}
       <h2 className="text-2xl font-bold mb-4">Transaction History</h2>
 
