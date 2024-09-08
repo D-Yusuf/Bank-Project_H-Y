@@ -48,7 +48,7 @@ const Profile = () => {
         </Screen>
         <Screen
           direction="right"
-          className="h-2/3 w-5/6 bg-secondary text-white border-pink-50 border-t-[1rem] border-l-[1rem] rounded-md p-5"
+          className="h-2/3 w-5/6 relative bg-secondary text-white border-pink-50 border-t-[1rem] border-l-[1rem] rounded-md"
         >
           <Outlet />
         </Screen>

@@ -40,7 +40,10 @@ const Profile = () => {
   const [endDate, setEndDate] = useState(new Date());
 
   return (
-    <div className="profile-container">
+    <>
+    <header className="fixed bg-secondary px-5 py-8 w-full">
+              {/* Header for the transaction history */}
+      <h2 className="text-2xl font-bold mb-4">Transaction History</h2>
       <div className="flex gap-4 flex-row bg-black">
         <h1>Start Date</h1>
         <DatePicker
@@ -54,14 +57,16 @@ const Profile = () => {
           selected={endDate}
           onChange={(date) => setEndDate(date)}
         />
-        <input type="radio" className="bg-black" />
-        <input type="radio" className="bg-black" />
-        <input type="radio" className="bg-black" />
-        <input type="radio" className="bg-black" />
+        <input type="checkbox" className="" />
+        <input type="checkbox" className="" />
+        <input type="checkbox" className="" />
+        <input type="checkbox" className="" />
       </div>
 
-      {/* Header for the transaction history */}
-      <h2 className="text-2xl font-bold mb-4">Transaction History</h2>
+
+
+    </header>
+    <div className="pt-32 p-5">
 
       {/* Display a loading message while the transactions are being fetched */}
       {!transactions ? (
@@ -88,6 +93,7 @@ const Profile = () => {
         </div>
       )}
     </div>
+    </>
   );
 };
 
