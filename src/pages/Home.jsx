@@ -12,7 +12,6 @@ const Home = () => {
   });
   function handleDeposit(e) {
     e.preventDefault();
-    console.log(depositAmount);
     mutate();
   }
   const { mutate: withdrawFunds } = useMutation({
@@ -24,11 +23,22 @@ const Home = () => {
     console.log(withdrawAmount);
     withdrawFunds();
   }
-
+  function chooseTransaction(){
+    const selectBox = document.getElementById("selectBox");
+    const chosenTransaction = selectBox.options[selectBox.selectedIndex].value;
+    document.getElementById(chosenTransaction).classList.remove("hidden")
+    const unchosenTransactions = [...selectBox.options].filter(option=> option.value !== selectBox.options[selectBox.selectedIndex].value)
+    unchosenTransactions.forEach(option=> document.getElementById(option.value).classList.add("hidden"))
+    console.log(unchosenTransactions)
+  }
   return (
-    <div>
-      Home
-      <form onSubmit={handleDeposit} className="bg-secondary text-white p-10 ">
+    <div className="flex flex-col items-center">
+      
+      <select id="selectBox" name="transaction" onChange={chooseTransaction}>
+        <option value="deposit">Deposit</option>
+        <option onClick={(e)=> console.log(e)} value="withdraw">Withdraw</option>
+      </select>
+      <form id="deposit" onSubmit={handleDeposit} className="bg-secondary text-white p-10 ">
         <input
           className="p-2 text-black"
           type="number"
@@ -38,7 +48,7 @@ const Home = () => {
           Deposit
         </button>
       </form>
-      <form onSubmit={handleWithdraw} className="bg-secondary text-white p-10 ">
+      <form id="withdraw" onSubmit={handleWithdraw} className="bg-secondary text-white p-10 hidden">
         <input
           className="p-2 text-black"
           type="number"
