@@ -4,7 +4,7 @@ import SplitScreen from "../../components/SplitScreen/SplitScreen";
 import ProfileNav from "./ProfileNav";
 import Screen from "../../components/SplitScreen/Screen";
 import { getMyInfo } from "../../api/auth";
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 import defaultPfP from "../../images/defaultPfP.jpg";
 const Profile = () => {
   function DashBoardScreen() {

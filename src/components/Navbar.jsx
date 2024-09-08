@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import UserContext from "../Context/UserContext";
 import { checkToken, deleteToken } from "../api/storage";
-import { useMutation } from "react-query";
+import { useMutation } from "@tanstack/react-query";
 
 const Navbar = () => {
   const { mutate } = useMutation({

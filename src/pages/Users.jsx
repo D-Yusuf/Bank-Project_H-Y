@@ -1,12 +1,12 @@
 import React from "react";
 import { getAllUsers } from "../api/auth";
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import User from "../components/User";
 const Users = () => {
   const [query, setQuery] = useState("");
 
-  const { data, isPending } = useQuery({
+  const { data, isPending, refetch } = useQuery({
     queryKey: ["getAllUsers"],
     queryFn: getAllUsers,
   });
@@ -21,7 +21,7 @@ const Users = () => {
       {data
         ? data.map((user) => {
             return (
-              <User userInfo={user} key={user._id} isPending={isPending} />
+              <User userInfo={user} key={user._id} isPending={isPending} refetchUsers={()=>refetch()} />
             );
           })
         : "Loading"}

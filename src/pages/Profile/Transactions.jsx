@@ -1,7 +1,7 @@
 // Import necessary modules from React and custom API functions
 import React, { useEffect, useState } from "react";
 import { getUserTransactions } from "../../api/auth"; // Import the function to fetch user transactions
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";

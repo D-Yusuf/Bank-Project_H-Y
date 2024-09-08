@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import SplitScreen from "../components/SplitScreen/SplitScreen";
 import Screen from "../components/SplitScreen/Screen";
-import { useMutation } from "react-query";
+import { useMutation } from "@tanstack/react-query";
 import { register } from "../api/auth";
 import UserContext from "../Context/UserContext";
 import { checkToken } from "../api/storage";
