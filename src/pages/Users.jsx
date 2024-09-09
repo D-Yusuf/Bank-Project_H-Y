@@ -20,7 +20,7 @@ const Users = () => {
 
   return (
     <div className="flex flex-col gap-5">
-    <div className="flex flex-wrap gap-4 justify-center">
+    <div className="flex flex-wrap gap-4 justify-center max-w-7xl mx-auto">
       {data
         ? data.map((user) => {
           return (

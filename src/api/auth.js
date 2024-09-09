@@ -47,21 +47,25 @@ async function getUserTransactions() {
 }
 async function withdraw(amount) {
   //put
-  const { data } = instance.put("/mini-project/api/transactions/withdraw", {
-    amount: amount, //here its amount: amount but i want to make it amount: amount - balance i still dont know how
+  const { data } = await instance.put("/mini-project/api/transactions/withdraw", {
+   amount: amount,
   });
   return data;
 }
-async function transfer(username, amount) {
-  const { data } = instance.put(
-    `/mini-project/api/transactions/transfer/${username}`,
-    {
-      amount: amount,
-    }
-  );
+async function transfer(amount, username) {
+  const { data } = await instance.put(`/mini-project/api/transactions/transfer/${username}`, {
+   amount: amount,
+   username: username,
+  });
   return data;
   //put
 }
+async function updateProfile(image){
+  const formData = new FormData()
+  formData.append("image", image)
+  const {data} = await instance.put("/mini-project/api/auth/profile", formData)
+  return data  
+} 
 async function getUserInfo() {
   // will use useQuery when path is
 }
@@ -70,10 +74,12 @@ export {
   register,
   login,
   getMyInfo,
+  updateProfile,
   getAllUsers,
   deposit,
   withdraw,
   transfer,
   getUserInfo,
   getUserTransactions,
+  
 };
