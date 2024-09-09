@@ -36,7 +36,8 @@ const Home = () => {
       
       <select id="selectBox" name="transaction" onChange={chooseTransaction}>
         <option value="deposit">Deposit</option>
-        <option onClick={(e)=> console.log(e)} value="withdraw">Withdraw</option>
+        <option value="withdraw">Withdraw</option>
+        <option value="transfer">Transfer</option>
       </select>
       <form id="deposit" onSubmit={handleDeposit} className="bg-secondary text-white p-10 ">
         <input
@@ -56,6 +57,16 @@ const Home = () => {
         />
         <button className="bg-accent p-2 " type="submit">
           Withdraw
+        </button>
+      </form>
+      <form id="transfer" onSubmit={handleWithdraw} className="bg-secondary text-white p-10 hidden">
+        <input
+          className="p-2 text-black"
+          type="number"
+          onChange={(e) => setWithdrawAmount(e.target.value)}
+        />
+        <button className="bg-accent p-2 " type="submit">
+          Transfer
         </button>
       </form>
     </div>
