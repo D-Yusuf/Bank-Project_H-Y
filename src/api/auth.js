@@ -53,6 +53,7 @@ async function withdraw(amount) {
   return data;
 }
 async function transfer(amount, username) {
+  const formData = new FormData()
   const { data } = await instance.put(`/mini-project/api/transactions/transfer/${username}`, {
    amount: amount,
    username: username,

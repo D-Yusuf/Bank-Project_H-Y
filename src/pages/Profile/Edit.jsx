@@ -44,7 +44,7 @@ const Edit = () => {
 
                 <img
                 id="the-picture"
-                  className="w-[300px] h-[300px] rounded-md"
+                  className="w-[300px] max-h-[500px] rounded-t-md"
                   src={
                     // image ||
                     (data.image

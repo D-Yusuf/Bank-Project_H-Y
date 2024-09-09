@@ -6,18 +6,18 @@ import { useQueryClient } from "@tanstack/react-query";
 const User = ({ userInfo, refetchUsers }) => {
     const queryClient = useQueryClient();
   const { _id, username, balance, image } = userInfo;
-  const [transferedMoney, setTransferedMoney] = useState(0);
+  const [transferedMoney, setTransferedMoney] = useState('');
   
   function handleChange(e) {
     setTransferedMoney(e.target.value);
   }
   const { mutate: sendMoney } = useMutation({
     mutationKey: ["transfer"],
-    mutationFn: () => transfer(userInfo.username, transferedMoney),
+    mutationFn: () => transfer(transferedMoney, username),
     onSuccess:  () => {
         queryClient.invalidateQueries({queryKey:["getAllUsers"]}).then(()=>refetchUsers());
 
-        setTransferedMoney(0);
+        setTransferedMoney('');
     },
   });
 //   function handleSubmit(e) {
