@@ -1,6 +1,8 @@
-import React from "react";
-
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import UserContext from "../Context/UserContext";
 const Landing = () => {
+  const [user] = useContext(UserContext)
   return (
     <div className="bg-white text-secondary flex flex-col justify-center items-center px-8">
       <div className="max-w-screen-lg w-full space-y-8">
@@ -22,17 +24,24 @@ const Landing = () => {
             Financial management has never been this seamless and social!
           </p>
         </div>
-
         <div className="flex  space-x-3 mt-10 animate-slide-in">
-          <button className="bg-accent text-white py-4 px-8 rounded-lg font-bold shadow-md hover:bg-opacity-80 transition duration-300 transform hover:scale-105">
+      {!user ?
+      <>
+          <Link to="/login" className="bg-accent text-white py-4 px-8 rounded-lg font-bold shadow-md hover:bg-opacity-80 transition duration-300 transform hover:scale-105">
             Login
-          </button>
-          <button className="bg-secondary text-white py-4 px-8 rounded-lg font-bold shadow-md hover:bg-opacity-80 transition duration-300 transform hover:scale-105">
+          </Link>
+          <Link to="/register" className="bg-secondary text-white py-4 px-8 rounded-lg font-bold shadow-md hover:bg-opacity-80 transition duration-300 transform hover:scale-105">
             Register
-          </button>
-        </div>
+          </Link>
+      </>
+          :  <Link to="/home" className="bg-accent text-white py-4 px-8 rounded-lg font-bold shadow-md hover:bg-opacity-80 transition duration-300 transform hover:scale-105">
+            Deposit / Withdraw
+          </Link>
 
-        <div className="flex justify-between mt-10 space-x-6">
+      }
+        </div> 
+
+        <div className="flex justify-between space-x-6">
           <img
             className="max-w-[225px]"
             src="https://cdni.iconscout.com/illustration/premium/thumb/rich-man-illustration-download-in-svg-png-gif-file-formats--successful-businessman-wealthy-person-higher-social-class-lifestyle-pack-people-illustrations-4491940.png?f=webp"
