@@ -2,9 +2,33 @@ import React, { useState } from 'react'
 import { getMyInfo, updateProfile } from '../../api/auth'
 import { useQuery, useMutation } from "@tanstack/react-query"
 import defaultPfP from "../../images/defaultPfP.jpg";
+import { toast } from 'react-toastify';
 const Edit = () => {
   const [image, setImage] = useState('')
+  const notify = () => {
+    toast("Default Notification !");
 
+    toast.success("Success Notification !", {
+      position: "top-center"
+    });
+
+    toast.error("Error Notification !", {
+      position: "top-left"
+    });
+
+    toast.warn("Warning Notification !", {
+      position: "bottom-left"
+    });
+
+    toast.info("Info Notification !", {
+      position: "bottom-center"
+    });
+
+    toast("Custom Style Notification with css class!", {
+      position: "bottom-right",
+      className: 'foo-bar'
+    });
+  };
   const { data, isPending } = useQuery({
     queryKey: ["getMyInfo"],
     queryFn: getMyInfo,
@@ -15,6 +39,7 @@ const Edit = () => {
   })
   function handleSubmit(e){
     e.preventDefault(); 
+    notify()
     editPfp()
   }
   function displayPicture(e) {

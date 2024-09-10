@@ -18,6 +18,7 @@ const ProfileNav = () => {
     mutationFn: () => deleteToken(),
     onSuccess: () => {
       setUser(false);
+      
     },
   });
   return (
@@ -46,7 +47,7 @@ const ProfileNav = () => {
       </NavLink>
       </div>
       
-      <NavLink onClick={logout} to={"/login"}  className="w-full flex justify-center bg-red-600 p-3 text-white rounded-sm" style={({isActive})=>{return {textDecoration: isActive? "underline" : "none"}}}  >
+      <NavLink onClick={logout} to={"/"}  className="w-full flex justify-center bg-red-600 p-3 text-white rounded-sm" style={({isActive})=>{return {textDecoration: isActive? "underline" : "none"}}}  >
         <img width={25} height={25} className='rotate-180' src={logoutIcon} alt="user" />
         
         </NavLink>

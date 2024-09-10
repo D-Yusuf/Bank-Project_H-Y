@@ -32,6 +32,26 @@ input[type='number'] {
   -moz-appearance: textfield;
 }
 
+
+/* .toast-container {
+}
+
+.Toastify__toast {
+  @apply fixed top-2 right-2 z-50;
+
+  @apply bg-red-500 text-white rounded-lg p-4 shadow-md;
+  @apply flex items-center justify-between;
+}
+
+.Toastify__progress-bar {
+  @apply w-full h-2 bg-gray-300 rounded-lg;
+  @apply transition-all duration-300;
+}
+
+.Toastify__close-button {
+  @apply text-white text-lg font-semibold;
+  @apply hover:text-gray-200;
+} */
 /* add to the split screen if want to center items in each screen */
 /* .centered {
     position: absolute;
