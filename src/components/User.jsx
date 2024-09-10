@@ -52,7 +52,7 @@ const User = ({ userInfo, refetchUsers }) => {
           value={transferedMoney}
         />
         <button
-    onClick={() => sendMoney()}
+    onClick={sendMoney}
           className="bg-accent py-2 px-4 w-fit text-lg rounded-full text-white"
         >
           Transfer

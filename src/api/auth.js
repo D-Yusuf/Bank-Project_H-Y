@@ -82,10 +82,10 @@ async function withdraw(amount) {
 
 async function transfer(amount, username) {
   try {
-    const formData = new FormData();
-    formData.append("amount", amount);
-    formData.append("username", username);
-    const { data } = await instance.put(`/mini-project/api/transactions/transfer/${username}`, formData);
+    // const formData = new FormData();
+    // formData.append("amount", amount);
+    // formData.append("username", username);
+    const { data } = await instance.put(`/mini-project/api/transactions/transfer/${username}`, {amount, username});
     return data;
   } catch (error) {
     alert("Error during transfer: (check login)" + error.message,)
