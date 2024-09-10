@@ -35,16 +35,19 @@ const Login = () => {
 
   return (
     <SplitScreen>
-      <Screen className="w-1/2 h-full bg-main" direction="left">
+      <Screen className="w-1/2 h-full bg-white" direction="left">
         {" "}
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col lg:gap-10 gap-4 p-6 "
+          className=" flex flex-col justify-center h-full w-full gap-10"
         >
           <h1 className="lg:text-4xl text-3xl font-extrabold text-center">
             [Welcome back to the Fullstack Bank!]
           </h1>
           <hr />
+          <div className="flex flex-col lg:gap-10 gap-4 p-6 max-w-2xl">
+
+          
           <h5 className="text-xl font-extrabold">Login to account</h5>
           <h5 className="text-lg font-semibold">
             Enter your information to log back
@@ -72,7 +75,7 @@ const Login = () => {
           </label>
 
           <button className="bg-accent text-white w-fit py-3 px-7 rounded-lg shadow-md hover:bg-opacity-80 active:bg-slate-500">
-            Submit
+            Login
           </button>
           <p>
             Don't have an account?
@@ -80,9 +83,13 @@ const Login = () => {
               Signup
             </Link>
           </p>
+          </div>
+
         </form>
       </Screen>
-      <Screen className="w-1/2 h-full bg-secondary" direction="right"></Screen>
+      <Screen className="w-1/2 h-full bg-secondary text-white flex flex-col gap-10 items-center pt-32" direction="right">
+        
+      </Screen>
     </SplitScreen>
   );
 };

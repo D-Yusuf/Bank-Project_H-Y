@@ -24,7 +24,7 @@ const Profile = () => {
     <div className="mt-32">
       {/* <SplitScreen secondScreenContent={<DashBoardScreen />} secondScreenClassName={"w-[70%] pt-0"}> */}
       <SplitScreen>
-        <Screen direction="left" className="h-full w-[5%] border-gray-300 border-r-2">
+        <Screen direction="left" className="h-full bg-white w-[5%] border-gray-300 border-r-2">
           
           <ProfileNav />
         </Screen>

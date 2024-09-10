@@ -39,7 +39,7 @@ const User = ({ userInfo, refetchUsers }) => {
       />
       {/* <h1>{_id}</h1> *same as userinfo.id */}
       <h1>{username}</h1>
-      <h1>{balance}</h1>
+      <h1>${balance}</h1>
       <div
         className="flex flex-col items-center gap-4 text-black"
       

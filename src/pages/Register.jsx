@@ -37,7 +37,7 @@ const Register = () => {
 
   return (
     <SplitScreen>
-      <Screen className="w-1/2 h-full bg-main" direction="left">
+      <Screen className="w-1/2 h-full bg-white" direction="left">
       <form
         onSubmit={handleSubmit}
         className="flex flex-col lg:gap-10 gap-4 p-6 "
